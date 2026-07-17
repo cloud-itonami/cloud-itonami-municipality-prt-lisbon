@@ -1,0 +1,25 @@
+;; data/datascript-tx.edn — DataScript tx-data derived from src/ordinance/facts.cljc
+;; `ordinance.facts/catalog` (ADR-2607141700 Wave 0). Same shape as sibling files.
+
+[#:ordinance{:id "lisbon.lei-169-1999-autarquias-locais"
+             :title "Lei n.º 169/99, de 18 de Setembro (Autarquias Locais - Competências e Regime Jurídico)"
+             :municipality "lisbon"
+             :country "PRT"
+             :kind :local-act
+             :number "Lei n.º 169/99"
+             :url "https://www.pgdlisboa.pt/leis/lei_mostra_articulado.php?nid=592&tabela=lei_velhas&nversao=4"
+             :url-provenance :official-pgdlisboa-pt
+             :enacted-date "1999-09-18"
+             :retrieved-at "2026-07-18"
+             :topic [:governance]}
+ #:ordinance{:id "lisbon.1147-portuguese-conquest"
+             :title "1147 Siege of Lisbon: after a four-month siege, Christian crusaders captured the city and Christian rule returned; the Moors capitulated on 22 October"
+             :municipality "lisbon"
+             :country "PRT"
+             :kind :local-act
+             :number "1147"
+             :url "https://en.wikipedia.org/wiki/History_of_Lisbon"
+             :url-provenance :wikipedia-corroborated
+             :enacted-date "1147-10-22"
+             :retrieved-at "2026-07-18"
+             :topic [:governance]}]
