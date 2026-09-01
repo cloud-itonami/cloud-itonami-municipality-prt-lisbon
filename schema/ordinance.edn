@@ -1,6 +1,16 @@
 ;; schema/ordinance.edn — DataScript schema for `ordinance.facts` (ADR-2607141700).
-;; Identical shape to cloud-itonami-municipality-jpn-tokyo /
-;; -usa-washington-dc / ... / -cze-prague's schema/ordinance.edn.
+;; Same shape as cloud-itonami-municipality-jpn-tokyo /
+;; -usa-washington-dc / ... / -cze-prague's schema/ordinance.edn, plus two
+;; attributes added 2026-09-01 for content-verified citations:
+;;
+;;   :ordinance/url-verified-phrase — a string quoted verbatim from the
+;;     document at :ordinance/url. `tools/verify_citations.cljs` refetches
+;;     the URL and fails unless the phrase is present, so a moved document
+;;     or a mistyped aviso number turns the check red. A status-code check
+;;     could not do this: diariodarepublica.pt/dr/detalhe/* returns HTTP 200
+;;     with a JavaScript shell for fabricated ids too.
+;;   :ordinance/gazette — the official publication reference (series,
+;;     issue number, date, page) as printed in that document.
 
 {:ordinance/id {:db/unique :db.unique/identity}
  :ordinance/title {}
@@ -10,6 +20,8 @@
  :ordinance/number {}
  :ordinance/url {}
  :ordinance/url-provenance {:db/index true}
+ :ordinance/url-verified-phrase {}
+ :ordinance/gazette {}
  :ordinance/enacted-date {}
  :ordinance/retrieved-at {}
  :ordinance/topic {:db/cardinality :db.cardinality/many :db/index true}}
