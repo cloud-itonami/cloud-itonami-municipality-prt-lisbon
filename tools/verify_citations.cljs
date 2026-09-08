@@ -26,7 +26,7 @@
             ["os" :as os]
             ["path" :as path]
             ["child_process" :as cp]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [clojure.edn :as edn]))
 
 (def argv (vec (drop 2 (.-argv js/process))))
@@ -55,7 +55,7 @@
 
 (defn charset-of [content-type]
   (let [m (re-find #"(?i)charset=\s*\"?([\w-]+)" (or content-type ""))]
-    (str/lower-case (or (second m) "utf-8"))))
+    (str/lower (or (second m) "utf-8"))))
 
 (defn have-pdftotext? []
   (try (cp/execSync "command -v pdftotext" #js {:stdio "ignore"}) true
