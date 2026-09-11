@@ -20,13 +20,13 @@ gaps identified at tick 141 (GTM/HND/PAN/PRT).
 
 Every entry carries `:ordinance/url-verified-phrase`, a string quoted
 verbatim from the document at `:ordinance/url`.
-[`tools/verify_citations.cljs`](tools/verify_citations.cljs) re-fetches
+[`tools/verify_citations.cljk`](tools/verify_citations.cljk) re-fetches
 each URL and fails unless that phrase is present in the extracted text:
 
 ```
-nbb tools/verify_citations.cljs          # 0 = all verified, 1 = a citation is wrong,
+nbb tools/verify_citations.cljk          # 0 = all verified, 1 = a citation is wrong,
                                          # 2 = REFUSED (could not answer)
-nbb tools/verify_citations.cljs --only lisbon.aviso-14828-2015-riep
+nbb tools/verify_citations.cljk --only lisbon.aviso-14828-2015-riep
 ```
 
 It needs `pdftotext` (poppler) on `PATH`, because the gazette citations
@@ -85,12 +85,12 @@ fabricate one.
 
 ## Data
 
-- `src/ordinance/facts.cljc` — the catalog, source of truth.
+- `src/ordinance/facts.cljk` — the catalog, source of truth.
 - `schema/ordinance.edn` — DataScript schema.
 - `data/datascript-tx.edn` — **generated** DataScript tx-data; regenerate
-  with `clojure -M -i tools/gen_tx.clj`. `tx-data-is-derived-from-the-catalog`
+  with `clojure -M -i tools/gen_tx.cljk`. `tx-data-is-derived-from-the-catalog`
   in the test suite fails if the two drift apart.
-- `tools/verify_citations.cljs` — the citation verifier described above.
+- `tools/verify_citations.cljk` — the citation verifier described above.
 
 Query the tx-data alongside other `cloud-itonami`/`etzhayyim`
 compliance-fact sources via `com-junkawasaki/root`'s
@@ -101,7 +101,7 @@ compliance-fact sources via `com-junkawasaki/root`'s
 ```
 clojure -M:test     # unit tests, offline
 clojure -M:lint     # clj-kondo
-nbb tools/verify_citations.cljs   # network; re-reads every cited document
+nbb tools/verify_citations.cljk   # network; re-reads every cited document
 ```
 
 The unit tests are offline on purpose: they check the catalog's
