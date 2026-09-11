@@ -2,7 +2,7 @@
 ;; `ordinance.facts/catalog` (ADR-2607141700). Same shape as sibling files.
 ;;
 ;; GENERATED — do not hand-edit. Regenerate with:
-;;   clojure -M -i tools/gen_tx.cljk
+;;   kbb -M -i tools/gen_tx.cljk
 ;; `test/ordinance/facts_test.cljk` fails if this file drifts from the catalog.
 
 [#:ordinance{:kind :local-act,
