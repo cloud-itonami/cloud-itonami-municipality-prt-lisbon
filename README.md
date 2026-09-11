@@ -24,9 +24,9 @@ verbatim from the document at `:ordinance/url`.
 each URL and fails unless that phrase is present in the extracted text:
 
 ```
-nbb tools/verify_citations.cljk          # 0 = all verified, 1 = a citation is wrong,
+kbb --backend sci tools/verify_citations.cljk          # 0 = all verified, 1 = a citation is wrong,
                                          # 2 = REFUSED (could not answer)
-nbb tools/verify_citations.cljk --only lisbon.aviso-14828-2015-riep
+kbb --backend sci tools/verify_citations.cljk --only lisbon.aviso-14828-2015-riep
 ```
 
 It needs `pdftotext` (poppler) on `PATH`, because the gazette citations
@@ -88,7 +88,7 @@ fabricate one.
 - `src/ordinance/facts.cljk` — the catalog, source of truth.
 - `schema/ordinance.edn` — DataScript schema.
 - `data/datascript-tx.edn` — **generated** DataScript tx-data; regenerate
-  with `clojure -M -i tools/gen_tx.cljk`. `tx-data-is-derived-from-the-catalog`
+  with `kbb -M -i tools/gen_tx.cljk`. `tx-data-is-derived-from-the-catalog`
   in the test suite fails if the two drift apart.
 - `tools/verify_citations.cljk` — the citation verifier described above.
 
@@ -99,9 +99,9 @@ compliance-fact sources via `com-junkawasaki/root`'s
 ## Tests
 
 ```
-clojure -M:test     # unit tests, offline
-clojure -M:lint     # clj-kondo
-nbb tools/verify_citations.cljk   # network; re-reads every cited document
+kbb -M:test     # unit tests, offline
+kbb -M:lint     # clj-kondo
+kbb --backend sci tools/verify_citations.cljk   # network; re-reads every cited document
 ```
 
 The unit tests are offline on purpose: they check the catalog's

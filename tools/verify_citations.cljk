@@ -1,4 +1,4 @@
-#!/usr/bin/env nbb
+#!/usr/bin/env kbb
 ;; tools/verify_citations.cljk — re-fetch every :ordinance/url in
 ;; data/datascript-tx.edn and confirm that :ordinance/url-verified-phrase
 ;; is actually present in the document.
@@ -19,7 +19,7 @@
 ;;   2  REFUSED — could not answer (no entries, no pdftotext, nothing
 ;;      scanned). Never reported as a pass.
 ;;
-;; Usage:  nbb tools/verify_citations.cljk [--only <ordinance-id>]
+;; Usage:  kbb --backend sci tools/verify_citations.cljk [--only <ordinance-id>]
 
 (ns verify-citations
   (:require ["fs" :as fs]
