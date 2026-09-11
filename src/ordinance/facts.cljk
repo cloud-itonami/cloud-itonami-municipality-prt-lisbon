@@ -27,7 +27,7 @@
   (`files.diariodarepublica.pt`) and the municipality's own PDFs
   (`lisboa.pt`) instead, and every entry carries
   `:ordinance/url-verified-phrase` -- a string quoted verbatim from
-  that document. `tools/verify_citations.cljs` re-fetches each URL and
+  that document. `tools/verify_citations.cljk` re-fetches each URL and
   fails unless the phrase is present in the extracted text, so the
   check discriminates in both directions (a wrong URL, a moved
   document, or a mis-transcribed number all turn it red).
@@ -231,7 +231,7 @@
       :note (str "cloud-itonami-municipality-prt-lisbon (ADR-2607141700): "
                  (count (get catalog "lisbon")) " Lisbon entries, each with a "
                  "verbatim phrase confirmed against the cited document "
-                 "(see tools/verify_citations.cljs). "
+                 "(see tools/verify_citations.cljk). "
                  "Extend `ordinance.facts/catalog`, never fabricate an id/url.")})))
 
 (defn by-topic [muni topic]

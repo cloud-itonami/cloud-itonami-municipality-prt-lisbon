@@ -1,9 +1,9 @@
-;; data/datascript-tx.edn — DataScript tx-data derived from src/ordinance/facts.cljc
+;; data/datascript-tx.edn — DataScript tx-data derived from src/ordinance/facts.cljk
 ;; `ordinance.facts/catalog` (ADR-2607141700). Same shape as sibling files.
 ;;
 ;; GENERATED — do not hand-edit. Regenerate with:
-;;   clojure -M -i tools/gen_tx.clj
-;; `test/ordinance/facts_test.clj` fails if this file drifts from the catalog.
+;;   clojure -M -i tools/gen_tx.cljk
+;; `test/ordinance/facts_test.cljk` fails if this file drifts from the catalog.
 
 [#:ordinance{:kind :local-act,
              :municipality "lisbon",

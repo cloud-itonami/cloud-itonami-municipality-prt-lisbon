@@ -4,7 +4,7 @@
 ;; attributes added 2026-09-01 for content-verified citations:
 ;;
 ;;   :ordinance/url-verified-phrase — a string quoted verbatim from the
-;;     document at :ordinance/url. `tools/verify_citations.cljs` refetches
+;;     document at :ordinance/url. `tools/verify_citations.cljk` refetches
 ;;     the URL and fails unless the phrase is present, so a moved document
 ;;     or a mistyped aviso number turns the check red. A status-code check
 ;;     could not do this: diariodarepublica.pt/dr/detalhe/* returns HTTP 200
