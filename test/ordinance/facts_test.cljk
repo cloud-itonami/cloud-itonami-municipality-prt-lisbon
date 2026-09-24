@@ -1,5 +1,5 @@
 (ns ordinance.facts-test
-  (:require [clojure.edn :as edn]
+  (:require [kotoba.lang.edn :as edn]
             [kotoba.io :as io]
             [clojure.set :as set]
             [kotoba.lang.text :as str]
