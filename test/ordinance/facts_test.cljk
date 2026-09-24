@@ -1,6 +1,6 @@
 (ns ordinance.facts-test
   (:require [clojure.edn :as edn]
-            [clojure.java.io :as io]
+            [kotoba.io :as io]
             [clojure.set :as set]
             [kotoba.lang.text :as str]
             [clojure.test :refer [deftest is testing]]
@@ -68,7 +68,7 @@
   ;; catalog moves without regenerating, the two disagree and a consumer
   ;; querying the tx-data sees something this repo never asserted.
   (let [f (io/file "data/datascript-tx.edn")]
-    (is (.exists f) "data/datascript-tx.edn is missing")
+    (is (io/exists? f) "data/datascript-tx.edn is missing")
     (let [rows (edn/read-string (slurp f))
           norm (fn [o] (update o :ordinance/topic #(vec (sort %))))]
       (is (= (count entries) (count rows)))
