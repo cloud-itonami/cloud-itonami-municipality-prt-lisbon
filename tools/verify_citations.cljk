@@ -27,7 +27,7 @@
             ["path" :as path]
             ["child_process" :as cp]
             [kotoba.lang.text :as str]
-            [clojure.edn :as edn]))
+            [kotoba.lang.edn :as edn]))
 
 (def argv (vec (drop 2 (.-argv js/process))))
 (def only (second (drop-while #(not= "--only" %) argv)))
